@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Document sans nom</title>
+
+<script>
+function alpha(ch)
+{
+  b=true;
+  for(i=0;i<ch.length;i++)
+    if(!((ch[i].toUpperCase()>="A"&&ch[i].toUpperCase()<"Z")||ch[i]==" "))
+      b=false;
+    return b;
+}
+function genere(x)
+{
+	do{
+		n=Math.floor(Math.random()*100);
+		}while(n<50||n>100)
+		document.getElementById(x).value=n;
+	
+}
+function test()
+{
+	ok=alpha(document.getElementById("np").value) ;
+	if (document.getElementById("np").value=="" || ok==false ||document.getElementById("np").value.indexof("  ")!=-1){
+		alert("nom et prenom incorrecte ") ;
+		return false ;}
+    if (document.getAnimations("cl").selectedIndex == 0 ){
+		alert("donnner votre class") ; 
+    return false ;}
+  if(document.getElementById("n1").value=="")
+  {
+    alert("gener N1 svp");
+    return false;
+  }
+  if(document.getElementById("n2").value=="")
+  {
+    alert("gener N2 svp");
+    return false;
+  }
+	if(document.getElementById("radio").checked==false && document.getElementById("radio2").checked==false)
+		{
+			alert("répon a Qustion 1");
+			return false;
+		}
+  if(document.getElementById("textfield2").value==""||isNaN(document.getElementById("textfield2").value))
+  {
+    alert("repon a Questin 2")
+    return false;
+  }
+  n1=document.getElementById("n1").value
+  n2=document.getElementById("n2").value
+  if(n1>n2&&document.getElementById("radio").checked&&document.getElementById("textfield2").value==n1*n2)
+  {
+    alert("vas repon son corect")
+   } else
+  if(n1<n2 && document.getElementById("nom").checked&&document.getElementById(textfield2).value==n1*n2)
+  {
+    alert("vos reponce incorect");
+  } else
+      alert("vous navai pas réponce ..")
+
+
+
+
+}
+
+</script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="felecit.html"onsubmit="return test()">
+  <h1>Evaluatin</h1>
+  <p>Nom et prenom
+    <input name="nom et prenom" type="text"id="np" />
+  </p>
+  <p>class
+    <select name="class"id="cl">
+      <option>choisir une class</option>
+      <option>3SI</option>
+      <option>4SI</option>
+      
+    </select>
+  </p>
+  <p>premier chiffre N1
+    <label>
+      <input type="text" name="n1" id="n1" />
+    </label>
+    <label>
+      <input type="button"  value="Grénére1"onclick="genere('n1')" />
+    </label>
+  </p>
+  <p>premier chiffre N2
+    <label>
+      <input type="text" name="n2" id="n2" />
+      <input type="button"  value="Grénére 2"onclick="genere('n2')" />
+    </label>
+  </p>
+  <p>Question1: est ce que N1&gt;N2 
+    <input type="radio" name="radio" id="radio" value="radio" />
+    oui
+    <label>
+      <input type="radio" name="radio2" id="radio2" value="radio2" />
+    </label>
+  Non</p>
+  <p>Qustion 2: Donner le resulta de N1 x N2
+    <label>?
+      <input type="text" name="textfield2" id="textfield2" />
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="submit" name="button2" id="button2" value="Evaluer"  />
+    </label>
+    <label>
+      <input type="reset" name="button3" id="button3" value="Reinalitaliser" />
+    </label>
+  </p>
+
+</form>
+</body>
+</html>
